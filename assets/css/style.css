@@ -181,15 +181,29 @@ h6 {
   object-fit: contain;
 }
 
-.left-button
+.manage-button
 {
   position: absolute;
+
+  background: var(--color-secondary);
+  border: none;
+  padding: 5px;
+
+  color: var(--font-color-primary);
+}
+
+.manage-button:disabled
+{
+  filter: grayscale(100%);
+}
+
+.left-button
+{
   left: 10px;
 }
 
 .right-button
 {
-  position: absolute;
   right: 10px;
 }
 

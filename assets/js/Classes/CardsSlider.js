@@ -44,6 +44,7 @@ class CardsSlider
         leftButton.textContent = '<'
         leftButton.classList.add("left-button");
         leftButton.classList.add("manage-button");
+        leftButton.setAttribute("disabled", "");
         leftButton.setAttribute("data-direction", "left");
 
         rightButton.textContent = '>'
