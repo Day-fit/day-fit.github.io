@@ -13,6 +13,12 @@ const secondaryFontColorDark = rootStyles.getPropertyValue('--font-color-seconda
 const secondaryFontColorLight = rootStyles.getPropertyValue('--font-color-secondary-light');
 
 const birthDate = new Date();
+
+const options =
+    {
+        createButtons: true,
+    }
+
 birthDate.setFullYear(2008);
 birthDate.setMonth(11);
 
@@ -21,9 +27,9 @@ fetch(`https://timeapi.io/api/time/current/zone?timeZone=Europe%2FAmsterdam`)
     .then(data => {
         const serverDate = new Date(data.date);
         const diff = serverDate - birthDate;
-        const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25)); // Uwzględnia lata przestępne
+        const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
 
-        document.querySelector("#age").textContent = String(age); // Display the correct age
+        document.querySelector("#age").textContent = String(age);
     })
     .catch((error) =>
     {
@@ -68,3 +74,8 @@ document.querySelector("#change-theme").addEventListener("click", (e) => {
         document.documentElement.style.setProperty("--font-color-secondary", secondaryFontColorDark);
     }
 });
+
+document.addEventListener("DOMContentLoaded", () =>
+{
+    new CardsSlider(document.querySelector('#skills-slider'), options);
+})
