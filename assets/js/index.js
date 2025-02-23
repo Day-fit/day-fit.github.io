@@ -29,7 +29,7 @@ fetch(`https://timeapi.io/api/time/current/zone?timeZone=Europe%2FAmsterdam`)
         const diff = serverDate - birthDate;
         const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
 
-        document.querySelector("#age").textContent = String(age);
+        document.querySelector("#age").textContent = String(age)+" year-old";
     })
     .catch((error) =>
     {
@@ -61,8 +61,6 @@ document.querySelector("#change-theme").addEventListener("click", (e) => {
     const secondaryFontColorVariant = e.currentTarget.classList.contains("active") ? secondaryFontColorLight : secondaryFontColorDark;
 
     if (e.currentTarget.classList.contains("active")) {
-        console.log("test");
-
         document.documentElement.style.setProperty("--color-primary", primaryColorVariant);
         document.documentElement.style.setProperty("--color-secondary", secondaryColorVariant);
         document.documentElement.style.setProperty("--font-color-primary", fontColorVariant);
