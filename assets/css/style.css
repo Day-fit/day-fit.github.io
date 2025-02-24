@@ -1,3 +1,14 @@
+@keyframes typing {
+  from{width: 0}
+  to{width: 100%}
+}
+
+@keyframes blinking
+{
+  from, to{border-color: transparent}
+  50%{border-color: var(--font-color-secondary)}
+}
+
 :root {
   --font-primary: "Poppins", sans-serif;
   --font-secondary: "Fira Code", monospace;
@@ -96,6 +107,14 @@ body * {
   display: flex;
   flex-direction: column;
   min-height: 100svh;
+}
+
+#greeter
+{
+  overflow-x: hidden;
+  border-right: var(--color-secondary) 3px solid;
+  animation: blinking 1s infinite, typing 1s steps(6);
+  letter-spacing: .05em;
 }
 
 header,
@@ -265,10 +284,9 @@ h6 {
 
 
 .cards-wrapper {
+
   position: relative;
-
-  left: calc(240px * 6);
-
+  transform: translateX(calc(240px * 6));
   display: flex;
 }
 
