@@ -6,11 +6,14 @@ class CardsSlider
     cardsNumber;
     cardsWrapper;
 
+    dots;
+
     currentCardIndex = 0;
 
     options =
         {
             createButtons: true,
+            createDots: true,
         }
 
     constructor(targetElement, options)
@@ -40,6 +43,8 @@ class CardsSlider
     {
         const leftButton = document.createElement("button");
         const rightButton = document.createElement("button");
+        const dotsWrapper = document.createElement("div");
+        const dots = [];
 
         leftButton.textContent = '<'
         leftButton.classList.add("left-button");
@@ -51,6 +56,34 @@ class CardsSlider
         rightButton.classList.add("right-button");
         rightButton.classList.add("manage-button");
         rightButton.setAttribute("data-direction", "right");
+
+        dotsWrapper.classList.add("dots-wrapper");
+        this.targetElement.append(dotsWrapper);
+
+        for (let i = 0; i <= this.cardsNumber; i++)
+        {
+            dots[i] = document.createElement("div");
+            dots[i].classList.add("dot");
+            dots[i].textContent = "."
+            dots[i].style.cursor = "pointer";
+
+            dots[i].addEventListener("click", () => {
+                this.cleanClasses();
+                this.currentCardIndex = i;
+
+                leftButton.disabled = this.currentCardIndex <= 0;
+                rightButton.disabled = this.currentCardIndex >= this.cardsNumber;
+
+                this.cards[this.currentCardIndex].classList.add("active");
+                this.dots[this.currentCardIndex].classList.add("active");
+                this.updateSlider();
+            });
+
+            this.dots = dots;
+            dotsWrapper.appendChild(dots[i]);
+        }
+
+        dots[0].classList.add("active");
 
         leftButton.addEventListener("click", () =>
         {
@@ -72,27 +105,35 @@ class CardsSlider
 
     loadNext()
     {
-        if(this.cards[this.currentCardIndex])
-        {
-            this.cards[this.currentCardIndex].classList.remove("active");
-        }
-
+        this.cleanClasses();
         this.currentCardIndex = Math.min(this.currentCardIndex+1, this.cardsNumber);
         this.cards[this.currentCardIndex].classList.add("active");
+        this.dots[this.currentCardIndex].classList.add("active");
 
         this.updateSlider();
     }
 
     loadPrev()
     {
+        this.cleanClasses();
+        this.currentCardIndex = Math.max(this.currentCardIndex-1, -1);
+        this.cards[this.currentCardIndex].classList.add("active");
+        this.dots[this.currentCardIndex].classList.add("active");
+
+        this.updateSlider();
+    }
+
+    cleanClasses()
+    {
         if(this.cards[this.currentCardIndex])
         {
             this.cards[this.currentCardIndex].classList.remove("active");
         }
-        this.currentCardIndex = Math.max(this.currentCardIndex-1, -1);
-        this.cards[this.currentCardIndex].classList.add("active");
 
-        this.updateSlider();
+        if (this.dots[this.currentCardIndex])
+        {
+            this.dots[this.currentCardIndex].classList.remove("active");
+        }
     }
 
     updateSlider() {
