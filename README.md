@@ -1,4 +1,4 @@
-# DayFit - About Page
+# Dayfit - About Page
 
 Welcome to the repository for **dayfit.github.io**, which hosts my personal about page.
 
