@@ -8,12 +8,14 @@ class CardsSlider
 
     dots;
 
-    currentCardIndex = 0;
+    currentCardIndex;
 
     options =
         {
             createButtons: true,
             createDots: true,
+
+            position: "center",
         }
 
     constructor(targetElement, options)
@@ -31,12 +33,27 @@ class CardsSlider
             }
         }
 
+        switch (this.options.position)
+        {
+            case "left":
+                this.currentCardIndex = 0;
+                break;
+
+            case "center":
+                this.currentCardIndex = parseInt(this.cardsNumber)/2;
+                break;
+
+            case "right":
+                this.currentCardIndex = parseInt(this.cardsNumber);
+                break;
+        }
+
         if (this.options.createButtons === true)
         {
             this.addButtons();
         }
 
-        this.cards[0].classList.add("active");
+        this.cards[this.currentCardIndex].classList.add("active");
     }
 
     addButtons()
@@ -83,7 +100,7 @@ class CardsSlider
             dotsWrapper.appendChild(dots[i]);
         }
 
-        dots[0].classList.add("active");
+        this.dots[this.currentCardIndex].classList.add("active");
 
         leftButton.addEventListener("click", () =>
         {
@@ -101,11 +118,19 @@ class CardsSlider
 
         this.targetElement.appendChild(leftButton);
         this.targetElement.appendChild(rightButton);
+
+        this.cleanClasses();
+
+        this.cards[this.currentCardIndex].classList.add("active");
+        this.dots[this.currentCardIndex].classList.add("active");
+
+        this.updateSlider();
     }
 
     loadNext()
     {
         this.cleanClasses();
+
         this.currentCardIndex = Math.min(this.currentCardIndex+1, this.cardsNumber);
         this.cards[this.currentCardIndex].classList.add("active");
         this.dots[this.currentCardIndex].classList.add("active");
