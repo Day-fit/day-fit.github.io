@@ -106,11 +106,18 @@ themeChanger.addEventListener("click", (e) => {
     document.documentElement.style.setProperty("--accent-color", accentColorVariant);
 });
 
-document.addEventListener("DOMContentLoaded", () =>
+window.addEventListener("load", () =>
 {
     updateThemes(document.querySelector("#change-theme").classList.contains("active"));
-
     new CardsSlider(document.querySelector('#skills-showcase'), options);
+
+    setTimeout(() =>
+    {
+        for(const card of cardsElements)
+        {
+            card.classList.remove("loading");
+        }
+    }, 10);
 })
 
 function updateThemes(isActive)

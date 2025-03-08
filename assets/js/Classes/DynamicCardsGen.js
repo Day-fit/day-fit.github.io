@@ -22,7 +22,7 @@ class DynamicCardsGen {
 
         if (!errorHappened && this.repositories.length > 0) {
             this.setup();
-            projectsText.textContent = "";
+            projectsText.style.display = "none";
         } else {
             projectsText.textContent = errorHappened ? PROJECTS_ERROR_TEXT : PROJECTS_LANDER_TEXT;
         }
@@ -41,6 +41,10 @@ class DynamicCardsGen {
         for (const repository of repositories) {
             const cardElement = document.createElement("div");
             cardElement.classList.add("card");
+            cardElement.addEventListener("click", () =>
+            {
+                window.open(repository.html_url, "_blank");
+            })
 
             const titleElement = document.createElement("h2");
             titleElement.classList.add("title");

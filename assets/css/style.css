@@ -317,6 +317,11 @@ h6 {
   color: var(--accent-color);
 }
 
+.card.loading
+{
+  transition: none !important;
+}
+
 .cards-wrapper
 {
   display: flex;
@@ -331,6 +336,11 @@ h6 {
 {
   position: relative;
   display: flex;
+}
+
+#projects-slider .card
+{
+    cursor: pointer;
 }
 
 .contact-link {
