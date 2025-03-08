@@ -39,7 +39,7 @@
 
 		<div class="triangle"></div>
 
-		<div id="skills-slider">
+		<div id="skills-showcase" class="skills-slider">
 			<div class="cards-wrapper">
 				<div class="card">
 					<h2 class="title">Java</h2>
@@ -99,25 +99,25 @@
 				</div>
 				<div class="card">
 					<h2 class="title">Flask</h2>
-					<picture>
+					<picture class="dark">
 						<source srcset="./assets/images/Cards-icons/webp/Flask.webp" type="image/webp">
-						<img src="./assets/images/Cards-icons/Flask.png" alt="Flask logo icon" class="dark" loading="lazy">
+						<img src="./assets/images/Cards-icons/Flask.png" alt="Flask logo icon" loading="lazy">
 					</picture>
 					<h5 class="experience">Experience: Used for setting up simple backend solutions efficiently</h5>
 				</div>
 				<div class="card">
 					<h2 class="title">RESTful API</h2>
-					<picture>
+					<picture class="dark">
 						<source srcset="./assets/images/Cards-icons/webp/Rest.webp" type="image/webp">
-						<img src="./assets/images/Cards-icons/Rest.png" alt="Rest logo icon" class="dark" loading="lazy">
+						<img src="./assets/images/Cards-icons/Rest.png" alt="Rest logo icon" loading="lazy">
 					</picture>
 					<h5 class="experience">Experience: Developed APIs using Spring Boot</h5>
 				</div>
 				<div class="card">
 					<h2 class="title">JSON</h2>
-					<picture>
+					<picture class="dark">
 						<source srcset="./assets/images/Cards-icons/webp/JSON.webp" type="image/webp">
-						<img src="./assets/images/Cards-icons/JSON.png" alt="JSON logo icon" class="dark" loading="lazy">
+						<img src="./assets/images/Cards-icons/JSON.png" alt="JSON logo icon" loading="lazy">
 					</picture>
 					<h5 class="experience">Experience: 1 year, used in APIs and file storage</h5>
 				</div>
@@ -139,9 +139,9 @@
 				</div>
 				<div class="card">
 					<h2 class="title">GitHub</h2>
-					<picture>
+					<picture class="dark">
 						<source srcset="./assets/images/Cards-icons/webp/Github.webp" type="image/webp">
-						<img src="./assets/images/Cards-icons/Github.png" alt="Github logo icon" class="dark" loading="lazy">
+						<img src="./assets/images/Cards-icons/Github.png" alt="Github logo icon" loading="lazy">
 					</picture>
 					<h5 class="experience">Experience: A few months, used for both personal and collaborative projects</h5>
 				</div>
@@ -152,10 +152,14 @@
 		<div class="triangle reverse"></div>
 
 		<h2>My Projects</h2>
-		<p>
+		<p id="projects-text">
 			Coming Soon! <br>
 			Stay Tuned
 		</p>
+
+		<div id="projects-slider" class="skills-slider">
+
+		</div>
 	</main>
 
 	<footer>
@@ -194,6 +198,7 @@
 	</footer>
 
     <script src="./assets/js/Classes/CardsSlider.js"></script>
+    <script src="assets/js/Classes/DynamicCardsGen.js"></script>
 	<script src="./assets/js/index.js"></script>
 </body>
 </html>
