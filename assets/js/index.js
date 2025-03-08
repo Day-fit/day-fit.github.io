@@ -54,7 +54,10 @@ fetch("https://api.github.com/users/day-fit/repos")
         updateThemes(document.querySelector("#change-theme").classList.contains("active"));
     })
     .then(()=>
-        new CardsSlider(document.querySelector("#projects-slider"), options)
+    {
+        new CardsSlider(document.querySelector("#projects-slider"), options);
+        document.querySelector("#hidden-triangle").style.display = document.querySelector("#projects-slider").querySelector(".card").length > 0 ? "block" : "none";
+    }
     )
     .catch(error => console.error(error));
 
