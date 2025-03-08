@@ -45,7 +45,7 @@ body * {
   transition: background-color 0.3s ease;
 }
 
-.card img.dark
+.card picture.dark
 {
   transition: filter 0.3s ease;
 }
@@ -186,7 +186,7 @@ h6 {
   font-family: var(--font-secondary), monospace;
 }
 
-#skills-slider {
+.skills-slider{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -226,7 +226,7 @@ h6 {
   margin-top: 30px;
 }
 
-.card .experience
+.card .experience, .card .description
 {
   padding: 20px;
   word-break: break-word;
@@ -317,10 +317,30 @@ h6 {
   color: var(--accent-color);
 }
 
-.cards-wrapper {
-  position: relative;
-  transform: translateX(calc(240px * 6));
+.card.loading
+{
+  transition: none !important;
+}
+
+.cards-wrapper
+{
   display: flex;
+  position: relative;
+}
+
+#skills-showcase .cards-wrapper{
+  transform: translateX(calc(240px * 6));
+}
+
+.projects-wrapper
+{
+  position: relative;
+  display: flex;
+}
+
+#projects-slider .card
+{
+    cursor: pointer;
 }
 
 .contact-link {

@@ -39,9 +39,9 @@
 
 		<div class="triangle"></div>
 
-		<div id="skills-slider">
+		<div id="skills-showcase" class="skills-slider">
 			<div class="cards-wrapper">
-				<div class="card">
+				<div class="card loading">
 					<h2 class="title">Java</h2>
 					<picture>
 						<source srcset="./assets/images/Cards-icons/webp/Java.webp" type="image/webp">
@@ -49,7 +49,7 @@
 					</picture>
 					<h5 class="experience">Experience: 4 years, primary programming language</h5>
 				</div>
-				<div class="card">
+				<div class="card loading">
 					<h2 class="title">JavaScript</h2>
 					<picture>
 						<source srcset="./assets/images/Cards-icons/webp/JS.webp" type="image/webp">
@@ -57,7 +57,7 @@
 					</picture>
 					<h5 class="experience">Experience: Used in projects, solid understanding of core concepts</h5>
 				</div>
-				<div class="card">
+				<div class="card loading">
 					<h2 class="title">Python</h2>
 					<picture>
 						<source srcset="./assets/images/Cards-icons/webp/Python.webp" type="image/webp">
@@ -65,7 +65,7 @@
 					</picture>
 					<h5 class="experience">Experience: Utilized for automation tasks, basic experience</h5>
 				</div>
-				<div class="card">
+				<div class="card loading">
 					<h2 class="title">PostgreSQL</h2>
 					<picture>
 						<source srcset="./assets/images/Cards-icons/webp/Postgre.webp" type="image/webp">
@@ -73,7 +73,7 @@
 					</picture>
 					<h5 class="experience">Experience: Used in Spring Boot projects, proficient in joins and subqueries</h5>
 				</div>
-				<div class="card">
+				<div class="card loading">
 					<h2 class="title">MySQL</h2>
 					<picture>
 						<source srcset="./assets/images/Cards-icons/webp/Mysql.webp" type="image/webp">
@@ -81,7 +81,7 @@
 					</picture>
 					<h5 class="experience">Experience: Similar knowledge as PostgreSQL, mainly used in academic settings</h5>
 				</div>
-				<div class="card">
+				<div class="card loading">
 					<h2 class="title">Spring</h2>
 					<picture>
 						<source srcset="./assets/images/Cards-icons/webp/Spring.webp" type="image/webp">
@@ -89,7 +89,7 @@
 					</picture>
 					<h5 class="experience">Experience: Familiar with fundamentals necessary for Spring Boot</h5>
 				</div>
-				<div class="card">
+				<div class="card loading">
 					<h2 class="title">Spring Boot</h2>
 					<picture>
 						<source srcset="./assets/images/Cards-icons/webp/Spring-Boot.webp" type="image/webp">
@@ -97,31 +97,31 @@
 					</picture>
 					<h5 class="experience">Experience: Knowledge of core concepts, planning to use in upcoming projects</h5>
 				</div>
-				<div class="card">
+				<div class="card loading">
 					<h2 class="title">Flask</h2>
-					<picture>
+					<picture class="dark">
 						<source srcset="./assets/images/Cards-icons/webp/Flask.webp" type="image/webp">
-						<img src="./assets/images/Cards-icons/Flask.png" alt="Flask logo icon" class="dark" loading="lazy">
+						<img src="./assets/images/Cards-icons/Flask.png" alt="Flask logo icon" loading="lazy">
 					</picture>
 					<h5 class="experience">Experience: Used for setting up simple backend solutions efficiently</h5>
 				</div>
-				<div class="card">
+				<div class="card loading">
 					<h2 class="title">RESTful API</h2>
-					<picture>
+					<picture class="dark">
 						<source srcset="./assets/images/Cards-icons/webp/Rest.webp" type="image/webp">
-						<img src="./assets/images/Cards-icons/Rest.png" alt="Rest logo icon" class="dark" loading="lazy">
+						<img src="./assets/images/Cards-icons/Rest.png" alt="Rest logo icon" loading="lazy">
 					</picture>
 					<h5 class="experience">Experience: Developed APIs using Spring Boot</h5>
 				</div>
-				<div class="card">
+				<div class="card loading">
 					<h2 class="title">JSON</h2>
-					<picture>
+					<picture class="dark">
 						<source srcset="./assets/images/Cards-icons/webp/JSON.webp" type="image/webp">
-						<img src="./assets/images/Cards-icons/JSON.png" alt="JSON logo icon" class="dark" loading="lazy">
+						<img src="./assets/images/Cards-icons/JSON.png" alt="JSON logo icon" loading="lazy">
 					</picture>
 					<h5 class="experience">Experience: 1 year, used in APIs and file storage</h5>
 				</div>
-				<div class="card">
+				<div class="card loading">
 					<h2 class="title">CSS</h2>
 					<picture>
 						<source srcset="./assets/images/Cards-icons/webp/Css.webp" type="image/webp">
@@ -129,7 +129,7 @@
 					</picture>
 					<h5 class="experience">Experience: 2 years, capable of styling full websites, but prefer backend development</h5>
 				</div>
-				<div class="card">
+				<div class="card loading">
 					<h2 class="title">Git</h2>
 					<picture>
 						<source srcset="./assets/images/Cards-icons/webp/Git.webp" type="image/webp">
@@ -137,11 +137,11 @@
 					</picture>
 					<h5 class="experience">Experience: Proficient in pushing and managing projects on GitHub</h5>
 				</div>
-				<div class="card">
+				<div class="card loading">
 					<h2 class="title">GitHub</h2>
-					<picture>
+					<picture class="dark">
 						<source srcset="./assets/images/Cards-icons/webp/Github.webp" type="image/webp">
-						<img src="./assets/images/Cards-icons/Github.png" alt="Github logo icon" class="dark" loading="lazy">
+						<img src="./assets/images/Cards-icons/Github.png" alt="Github logo icon" loading="lazy">
 					</picture>
 					<h5 class="experience">Experience: A few months, used for both personal and collaborative projects</h5>
 				</div>
@@ -152,10 +152,14 @@
 		<div class="triangle reverse"></div>
 
 		<h2>My Projects</h2>
-		<p>
+		<p id="projects-text">
 			Coming Soon! <br>
 			Stay Tuned
 		</p>
+
+		<div id="projects-slider" class="skills-slider">
+
+		</div>
 	</main>
 
 	<footer>
@@ -194,6 +198,7 @@
 	</footer>
 
     <script src="./assets/js/Classes/CardsSlider.js"></script>
+    <script src="assets/js/Classes/DynamicCardsGen.js"></script>
 	<script src="./assets/js/index.js"></script>
 </body>
 </html>

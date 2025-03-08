@@ -16,17 +16,47 @@ const accentColorDark = rootStyles.getPropertyValue('--accent-color-dark');
 const accentColorLight = rootStyles.getPropertyValue('--accent-color-light');
 
 const themeChanger = document.querySelector("#change-theme")
-const cardsElements = document.querySelectorAll(".card");
+let cardsElements = document.querySelectorAll(".card");
 
+const optionsDCG =
+    {
+        ignored:
+            [
+                "Day-fit",
+            ]
+    }
 const birthDate = new Date();
 
 const options =
     {
         createButtons: true,
+        createDots: true,
+        position: "center",
+    }
+
+const imagePath =
+    {
+        webp: "assets/images/Cards-icons/webp/Github.webp",
+        png: "assets/images/Cards-icons/Github.png",
+        alt: "Github icon image",
+        dark: "dark" //if the icon is not dark, put empty string
     }
 
 birthDate.setFullYear(2008);
 birthDate.setMonth(11);
+
+fetch("https://api.github.com/users/day-fit/repos")
+    .then(response => response.json())
+    .then(repos =>
+    {
+        new DynamicCardsGen(repos, document.querySelector("#projects-text"), document.querySelector("#projects-slider"), imagePath, optionsDCG);
+        cardsElements = document.querySelectorAll(".card");
+        updateThemes(document.querySelector("#change-theme").classList.contains("active"));
+    })
+    .then(()=>
+        new CardsSlider(document.querySelector("#projects-slider"), options)
+    )
+    .catch(error => console.error(error));
 
 fetch(`https://timeapi.io/api/time/current/zone?timeZone=Europe%2FAmsterdam`)
     .then(response => response.json())
@@ -76,11 +106,18 @@ themeChanger.addEventListener("click", (e) => {
     document.documentElement.style.setProperty("--accent-color", accentColorVariant);
 });
 
-document.addEventListener("DOMContentLoaded", () =>
+window.addEventListener("load", () =>
 {
     updateThemes(document.querySelector("#change-theme").classList.contains("active"));
+    new CardsSlider(document.querySelector('#skills-showcase'), options);
 
-    new CardsSlider(document.querySelector('#skills-slider'), options);
+    setTimeout(() =>
+    {
+        for(const card of cardsElements)
+        {
+            card.classList.remove("loading");
+        }
+    }, 10);
 })
 
 function updateThemes(isActive)
@@ -99,7 +136,7 @@ function updateThemes(isActive)
         }
     }
 
-    for (const image of document.querySelectorAll("img.dark"))
+    for (const image of document.querySelectorAll("picture.dark, img.dark"))
     {
         image.style.filter = isActive ? "none" : "invert(1)";
     }
