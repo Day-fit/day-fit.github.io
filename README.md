@@ -6,7 +6,6 @@ Welcome to the repository for **day-fit.github.io**, which hosts my personal abo
 This page is hosted and available here: [About Me](https://day-fit.github.io)
 
 ## 📦 Features
-- Personal biography and background information
 - Professional experience and projects
 - Contact information and social media links
 
