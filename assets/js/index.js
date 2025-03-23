@@ -31,7 +31,14 @@ const options =
     {
         createButtons: true,
         createDots: true,
-        position: "center",
+        position: "left",
+    }
+
+const optionsPortfolio =
+    {
+        createButtons: true,
+        createDots: true,
+        position: "right",
     }
 
 const imagePath =
@@ -55,7 +62,7 @@ fetch("https://api.github.com/users/day-fit/repos")
     })
     .then(()=>
     {
-        new CardsSlider(document.querySelector("#projects-slider"), options);
+        new CardsSlider(document.querySelector("#projects-slider"), optionsPortfolio);
         document.querySelector("#hidden-triangle").style.display = document.querySelector("#projects-slider").querySelectorAll(".card").length > 0 ? "block" : "none";
     }
     )

@@ -329,7 +329,7 @@ h6 {
 }
 
 #skills-showcase .cards-wrapper{
-  transform: translateX(calc(240px * 6));
+  transform: translateX(calc(240px * 5.5));
 }
 
 .projects-wrapper
