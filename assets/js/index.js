@@ -18,13 +18,6 @@ const accentColorLight = rootStyles.getPropertyValue('--accent-color-light');
 const themeChanger = document.querySelector("#change-theme")
 let cardsElements = document.querySelectorAll(".card");
 
-const optionsDCG =
-    {
-        ignored:
-            [
-                "Day-fit",
-            ]
-    }
 const birthDate = new Date();
 
 const options =
@@ -52,11 +45,11 @@ const imagePath =
 birthDate.setFullYear(2008);
 birthDate.setMonth(11);
 
-fetch("https://api.github.com/users/day-fit/repos")
+fetch("http://158.101.164.10:8080/api/repos")
     .then(response => response.json())
     .then(repos =>
     {
-        new DynamicCardsGen(repos, document.querySelector("#projects-text"), document.querySelector("#projects-slider"), imagePath, optionsDCG);
+        new DynamicCardsGen(repos, document.querySelector("#projects-text"), document.querySelector("#projects-slider"), imagePath);
         cardsElements = document.querySelectorAll(".card");
         updateThemes(document.querySelector("#change-theme").classList.contains("active"));
     })
@@ -68,14 +61,10 @@ fetch("https://api.github.com/users/day-fit/repos")
     )
     .catch(error => console.error(error));
 
-fetch(`https://timeapi.io/api/time/current/zone?timeZone=Europe%2FAmsterdam`)
+fetch(`http://158.101.164.10:8080/api/age`)
     .then(response => response.json())
     .then(data => {
-        const serverDate = new Date(data.date);
-        const diff = serverDate - birthDate;
-        const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
-
-        document.querySelector("#age").textContent = String(age)+" years-old";
+        document.querySelector("#age").textContent = String(data.age)+" years-old";
     })
     .catch((error) =>
     {

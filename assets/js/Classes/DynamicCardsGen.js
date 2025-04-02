@@ -8,14 +8,12 @@ class DynamicCardsGen {
      * @param {HTMLElement} projectsText - The element to display project status text.
      * @param {HTMLElement} targetElement - The target element to append the cards to.
      * @param {Object} imagePaths - The paths for the images to be used in the cards.
-     * @param {Object} options - Additional options for the card generation.
      */
-    constructor(repositories, projectsText, targetElement, imagePaths, options) {
+    constructor(repositories, projectsText, targetElement, imagePaths) {
         const PROJECTS_LANDER_TEXT = "Coming Soon!\nStay Tuned";
         const PROJECTS_ERROR_TEXT = "Something went wrong. Please refresh website and try again.";
         let errorHappened = false;
 
-        this.IGNORED_REPOS = options?.ignored? options.ignored : [];
         this.targetElement = targetElement ? targetElement : document.body;
         this.imagePaths = imagePaths;
         this.repositories = repositories;
@@ -35,10 +33,9 @@ class DynamicCardsGen {
         const wrapper = document.createElement("div");
         wrapper.classList.add("cards-wrapper");
         this.targetElement.appendChild(wrapper);
-        const repositories = this.repositories.filter(repository => !this.IGNORED_REPOS.includes(repository.name));
-        wrapper.style.transform = `translateX(calc(240px * ${(repositories.length-1)/2}))`;
+        wrapper.style.transform = `translateX(calc(240px * ${(this.repositories.length-1)/2}))`;
 
-        for (const repository of repositories) {
+        for (const repository of this.repositories) {
             const cardElement = document.createElement("div");
             cardElement.classList.add("card");
             cardElement.addEventListener("click", () =>
