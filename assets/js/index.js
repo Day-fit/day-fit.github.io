@@ -45,7 +45,7 @@ const imagePath =
 birthDate.setFullYear(2008);
 birthDate.setMonth(11);
 
-fetch("https://130.61.201.177:8443/api/repos")
+fetch("https://aboutme.dayfit.pl/api/repos")
     .then(response => response.json())
     .then(repos =>
     {
@@ -61,7 +61,7 @@ fetch("https://130.61.201.177:8443/api/repos")
     )
     .catch(error => console.error(error));
 
-fetch(`https://130.61.201.177:8443/api/age`)
+fetch(`https://aboutme.dayfit.pl/api/age`)
     .then(response => response.json())
     .then(data => {
         document.querySelector("#age").textContent = String(data.age)+" years-old";
