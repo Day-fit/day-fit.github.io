@@ -1,17 +1,28 @@
-# Dayfit - About Page
+# Dayfit
 
-Welcome to the repository for **day-fit.github.io**, which hosts my personal about page.
+React + TypeScript application built with Vite and Tailwind CSS.
 
-## 🌐 Live Page
-This page is hosted and available here: [About Me](https://day-fit.github.io)
+## Development
 
-## 📦 Features
-- Professional experience and projects
-- Contact information and social media links
+Use Node.js 22.12 or newer and npm.
 
-## 🛠️ Installation Instructions
-To set up this project locally, follow these steps:
+```sh
+npm install
+npm run dev
+```
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/day-fit/day-fit.github.io.git
+Edit `src/App.tsx` for the application and `src/index.css` for global styles.
+Tailwind utilities are available through the Tailwind Vite plugin.
+
+## Commands
+
+- `npm run dev` — start the development server.
+- `npm run build` — type-check and create the production build in `dist/`.
+- `npm run lint` — run ESLint.
+- `npm run lint:fix` — fix automatically correctable lint issues.
+- `npm run format` — format source and configuration with Prettier.
+- `npm run format:check` — check formatting without changing files.
+- `npm run preview` — preview the production build locally.
+
+The production output can be deployed to a static host. GitHub Pages must serve
+`dist/` through a build workflow; it cannot serve the TypeScript source directly.
