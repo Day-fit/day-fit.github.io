@@ -3,6 +3,7 @@ import Line from '../ui/Line.tsx'
 import Link from '../ui/Link.tsx'
 import ProjectTechnologies from './ProjectTechnologies.tsx'
 import type { ProjectTechnology } from './ProjectTechnologies.tsx'
+import ScrollReveal from '../motion/ScrollReveal.tsx'
 
 type ProjectSectionProps = {
     name: string
@@ -39,7 +40,11 @@ export default function ProjectSection({
     websiteUrl,
 }: ProjectSectionProps) {
     return (
-        <article className="mb-4 min-w-0 rounded-md bg-background p-4 sm:p-6">
+        <ScrollReveal
+            as="article"
+            delay={0.08}
+            className="mb-4 min-w-0 rounded-md bg-background p-4 sm:p-6"
+        >
             <div className="mb-5 flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
                 <div className="flex min-w-0 items-center gap-3 sm:gap-4">
                     {iconSrc && (
@@ -89,6 +94,6 @@ export default function ProjectSection({
                     )}
                 </div>
             )}
-        </article>
+        </ScrollReveal>
     )
 }

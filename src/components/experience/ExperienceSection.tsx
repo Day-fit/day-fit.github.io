@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import Line from '../ui/Line.tsx'
+import ScrollReveal from '../motion/ScrollReveal.tsx'
 
 type ExperienceSectionProps = {
     company: string
@@ -19,7 +20,7 @@ export default function ExperienceSection({
     isLatest = false,
 }: ExperienceSectionProps) {
     return (
-        <article>
+        <ScrollReveal as="article" delay={0.08}>
             <div className="mb-5 flex w-full flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
                 <div className="min-w-0">
                     <h3 className="text-2xl sm:text-3xl">{company}</h3>
@@ -39,6 +40,6 @@ export default function ExperienceSection({
             {children != null && (
                 <div className="mt-6 sm:mt-10">{children}</div>
             )}
-        </article>
+        </ScrollReveal>
     )
 }

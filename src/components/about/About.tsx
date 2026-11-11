@@ -1,4 +1,5 @@
 import GenericSection from '../layout/GenericSection.tsx'
+import ScrollReveal from '../motion/ScrollReveal.tsx'
 
 export default function About() {
     return (
@@ -6,23 +7,27 @@ export default function About() {
             sectionTitle={'About'}
             title={'Little bit about myself'}
         >
-            <p className="text-base leading-relaxed sm:text-lg">
-                I started coding at 13 because I wanted to write plugins for my
-                Minecraft server. I learned Java from tutorials and "Think
-                Java", a book my parents bought me. I'm now a fourth-year
-                student at a technical high school, specializing in programming.
-                I build backend systems like Mossy, focusing on authentication,
-                asynchronous communication and microservices.
-            </p>
-            <div className="mt-10">
+            <ScrollReveal
+                as="p"
+                delay={0.08}
+                className="text-base leading-relaxed sm:text-lg"
+            >
+                My name is Dawid. I started coding when I was 13, it all started
+                when I wanted to write plugins for my minecraft server, so I've
+                watched some Java tutorials and my parents bought a book ("Think
+                Java"), programming was so fun to me that I decided to further
+                educate about programming. Currently I'm a fourth-year student
+                at technical high school, specializing in programming. I'm
+                developing backend systems such as Mossy.
+            </ScrollReveal>
+            <ScrollReveal className="mt-10" delay={0.08}>
                 <h3 className="text-2xl">My stack</h3>
                 <dl className="mt-6 grid gap-x-12 gap-y-6 sm:grid-cols-2">
                     <div>
                         <dt className="font-semibold">Where I'm strongest</dt>
                         <dd className="mt-1 text-sm leading-relaxed text-secondary-text">
                             Kotlin and Java with Spring Boot are where I feel
-                            most confident, from building APIs to authentication
-                            and communication between services.
+                            most confident.
                         </dd>
                     </div>
                     <div>
@@ -49,7 +54,7 @@ export default function About() {
                         </dd>
                     </div>
                 </dl>
-            </div>
+            </ScrollReveal>
         </GenericSection>
     )
 }
