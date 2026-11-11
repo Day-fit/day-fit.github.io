@@ -23,7 +23,16 @@ export default function Hero() {
                     architecture.
                 </p>
 
-                <Link href="#Projects">Explore my work</Link>
+                <div className="flex flex-wrap items-center justify-end gap-3">
+                    <Link href="#Projects">Explore my work</Link>
+                    <Link
+                        href={`${import.meta.env.BASE_URL}cv.pdf`}
+                        isExternal
+                        variant="secondary"
+                    >
+                        View CV
+                    </Link>
+                </div>
             </div>
         </section>
     )

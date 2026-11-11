@@ -1,29 +1,40 @@
-import { GoLinkExternal } from 'react-icons/go'
+import { GoArrowRight, GoLinkExternal } from 'react-icons/go'
 
-type externalLinkProps = {
+type LinkProps = {
     isExternal?: boolean
     href?: string
     children: string
+    variant?: 'primary' | 'secondary'
 }
 
 export default function Link({
     href,
     isExternal = false,
     children,
-}: externalLinkProps) {
+    variant = 'primary',
+}: LinkProps) {
+    const Icon = isExternal ? GoLinkExternal : GoArrowRight
+    const appearance =
+        variant === 'primary'
+            ? 'border-primary-text bg-primary-text text-background hover:border-white hover:bg-white'
+            : 'border-border text-primary-text hover:border-muted-text hover:bg-surface'
+
     return (
-        <div className="flex flex-col gap-y-0.5">
-            <div className="flex items-center gap-x-2">
-                <a
-                    className="text-xl"
-                    href={href}
-                    target={isExternal ? '_blank' : '_self'}
-                >
-                    <h3>{children}</h3>
-                </a>
-                <GoLinkExternal />
-            </div>
-            <div className="w-full bg-border h-0.5" />
-        </div>
+        <a
+            className={`group inline-flex min-h-12 shrink-0 items-center justify-center gap-5 rounded-sm border px-5 py-3 text-base font-semibold whitespace-nowrap transition duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-text motion-safe:active:scale-[0.98] motion-reduce:transition-none ${appearance}`}
+            href={href}
+            target={isExternal ? '_blank' : '_self'}
+            rel={isExternal ? 'noopener noreferrer' : undefined}
+        >
+            <span>{children}</span>
+            <Icon
+                aria-hidden="true"
+                className={`size-5 shrink-0 transition-transform duration-200 motion-reduce:transition-none ${
+                    isExternal
+                        ? 'motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5'
+                        : 'motion-safe:group-hover:translate-x-1'
+                }`}
+            />
+        </a>
     )
 }
