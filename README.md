@@ -1,17 +1,9 @@
-# Dayfit - About Page
+# Dawid Socha — Portfolio
 
-Welcome to the repository for **day-fit.github.io**, which hosts my personal about page.
+My personal website as a Java and Kotlin backend developer, with my projects, internship experience and a bit about how I got into programming.
 
-## 🌐 Live Page
-This page is hosted and available here: [About Me](https://day-fit.github.io)
+The projects include Mossy, Aurora and Encryptify, with links to their repositories. Mossy also has a closer look at the choices and trade-offs behind it.
 
-## 📦 Features
-- Professional experience and projects
-- Contact information and social media links
+You'll also find my CV, GitHub activity and contact details on the site.
 
-## 🛠️ Installation Instructions
-To set up this project locally, follow these steps:
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/day-fit/day-fit.github.io.git
+[GitHub](https://github.com/Day-fit) · [LinkedIn](https://www.linkedin.com/in/dawid-socha-66193a34b/) · [Email](mailto:dawid.socha@proton.me)

@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+@import '@xyflow/react/dist/style.css' layer(base);
+@import '@fontsource-variable/instrument-sans';
+@import '@fontsource-variable/instrument-sans/wght-italic.css';
+@import '@fontsource/instrument-sans/400.css';
+@import '@fontsource/instrument-sans/500.css';
+@import '@fontsource/instrument-sans/600.css';
+@import '@fontsource/instrument-sans/700.css';
+@import '@fontsource/instrument-sans/400-italic.css';
+@import '@fontsource/instrument-sans/500-italic.css';
+@import '@fontsource/instrument-sans/600-italic.css';
+@import '@fontsource/instrument-sans/700-italic.css';
+
+@theme {
+    --font-sans: 'Instrument Sans Variable', 'Instrument Sans', sans-serif;
+    --font-instrument-sans: 'Instrument Sans', sans-serif;
+    --font-instrument-sans-variable: 'Instrument Sans Variable', sans-serif;
+
+    --color-background: #17191b;
+    --color-surface: #252729;
+    --color-elevated: #303335;
+    --color-border: #3c3f41;
+
+    --color-primary-text: #f0efeb;
+    --color-secondary-text: #bec1bd;
+    --color-muted-text: #bec1bd;
+}
+
+@layer base {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family:
+            var(--font-instrument-sans-variable), 'Arial', 'sans-serif';
+        color: var(--color-primary-text);
+        font-weight: 600;
+    }
+
+    body {
+        background-color: var(--color-background);
+        color: var(--color-primary-text);
+        font-family: var(--font-instrument-sans), 'Arial', 'sans-serif';
+        font-weight: 200;
+    }
+}
