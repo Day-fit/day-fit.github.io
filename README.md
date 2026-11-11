@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Edit `src/App.tsx` for the application and `src/index.css` for global styles.
+Edit `src/App.tsx` for the application and `src/globals.css` for global styles.
 Tailwind utilities are available through the Tailwind Vite plugin.
 
 ## Commands

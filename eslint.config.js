@@ -6,19 +6,19 @@ import tseslint from 'typescript-eslint'
 import prettier from 'eslint-config-prettier'
 
 export default tseslint.config(
-  { ignores: ['dist'] },
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    languageOptions: { ecmaVersion: 2022, globals: globals.browser },
-    plugins: { 'react-hooks': reactHooks, 'react-refresh': reactRefresh },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+    { ignores: ['dist'] },
+    {
+        files: ['**/*.{ts,tsx}'],
+        extends: [js.configs.recommended, ...tseslint.configs.recommended],
+        languageOptions: { ecmaVersion: 2022, globals: globals.browser },
+        plugins: { 'react-hooks': reactHooks, 'react-refresh': reactRefresh },
+        rules: {
+            ...reactHooks.configs.recommended.rules,
+            'react-refresh/only-export-components': [
+                'warn',
+                { allowConstantExport: true },
+            ],
+        },
     },
-  },
-  prettier,
+    prettier,
 )
