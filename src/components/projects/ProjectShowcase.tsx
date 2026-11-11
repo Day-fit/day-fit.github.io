@@ -6,7 +6,13 @@ export default function ProjectShowcase() {
     return (
         <GenericSection
             id="projects"
-            title={'Projects'}
+            title={
+                <>
+                    What I've
+                    <br />
+                    been building.
+                </>
+            }
             sectionTitle={'Projects'}
         >
             <ProjectSection

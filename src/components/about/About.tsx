@@ -5,7 +5,7 @@ export default function About() {
     return (
         <GenericSection
             sectionTitle={'About'}
-            title={'Little bit about myself'}
+            title={<>A little bit <br/> about myself.</>}
         >
             <ScrollReveal
                 as="p"

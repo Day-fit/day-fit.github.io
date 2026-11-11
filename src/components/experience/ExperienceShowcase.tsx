@@ -12,9 +12,9 @@ export default function ExperienceShowcase({
         <GenericSection
             title={
                 <>
-                    Practical engineering.
+                    Where I've
                     <br />
-                    Measurable results.
+                    worked.
                 </>
             }
             sectionTitle="Experience"

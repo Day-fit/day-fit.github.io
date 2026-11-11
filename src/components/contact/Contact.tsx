@@ -7,7 +7,7 @@ export default function Contact() {
         <GenericSection
             title={
                 <>
-                    Let's work <br /> together
+                    Let's work <br /> together.
                 </>
             }
             sectionTitle={'Contact'}

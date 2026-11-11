@@ -1,50 +1,9 @@
-# Dayfit
+# Dawid Socha — Portfolio
 
-React + TypeScript application built with Vite and Tailwind CSS.
+My personal website as a Java and Kotlin backend developer, with my projects, internship experience and a bit about how I got into programming.
 
-## Development
+The projects include Mossy, Aurora and Encryptify, with links to their repositories. Mossy also has a closer look at the choices and trade-offs behind it.
 
-Use Node.js 22.12 or newer and npm.
+You'll also find my CV, GitHub activity and contact details on the site.
 
-```sh
-npm install
-npm run dev
-```
-
-Edit `src/pages/home/HomePage.tsx` for the home page and `src/globals.css` for global styles.
-Tailwind utilities are available through the Tailwind Vite plugin.
-
-## Project structure
-
-```text
-src/
-  components/
-    experience/    # Role entries and their shared section heading
-    hero/          # Hero introduction and scroll cue
-    layout/        # Shared section layout
-    projects/      # Project presentation
-    ui/            # Reusable links and dividers
-  pages/
-    home/
-      HomePage.tsx          # Composes the home page
-      PortfolioSections.tsx # Assembles the portfolio content
-  App.tsx          # Application entry component
-  main.tsx         # React bootstrap
-  globals.css      # Fonts, theme tokens, and base styles
-```
-
-Keep feature components in their purpose-specific folder, shared visual primitives
-in `components/ui`, and page composition in `pages`.
-
-## Commands
-
-- `npm run dev` — start the development server.
-- `npm run build` — type-check and create the production build in `dist/`.
-- `npm run lint` — run ESLint.
-- `npm run lint:fix` — fix automatically correctable lint issues.
-- `npm run format` — format source and configuration with Prettier.
-- `npm run format:check` — check formatting without changing files.
-- `npm run preview` — preview the production build locally.
-
-The production output can be deployed to a static host. GitHub Pages must serve
-`dist/` through a build workflow; it cannot serve the TypeScript source directly.
+[GitHub](https://github.com/Day-fit) · [LinkedIn](https://www.linkedin.com/in/dawid-socha-66193a34b/) · [Email](mailto:dawid.socha@proton.me)
