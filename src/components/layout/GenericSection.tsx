@@ -12,7 +12,7 @@ export default function GenericSection({
     sectionTitle,
 }: GenericSectionProps) {
     return (
-        <section className="flex flex-row pb-20 [counter-increment:section]">
+        <section className="flex w-full bg-surface flex-row px-10 pt-10 pb-20 [counter-increment:section]">
             <div className="mt-5 flex flex-row lg:w-1/4 shrink-0 min-w-0 gap-x-2">
                 <span
                     aria-hidden="true"

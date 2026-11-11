@@ -1,10 +1,11 @@
 import ExperienceSection from '../../components/experience/ExperienceSection.tsx'
 import ExperienceShowcase from '../../components/experience/ExperienceShowcase.tsx'
 import { FaLongArrowAltRight } from 'react-icons/fa'
+import ProjectShowcase from '../../components/projects/ProjectShowcase.tsx'
 
 export default function PortfolioSections() {
     return (
-        <div className="bg-surface pt-10 [counter-reset:section]">
+        <div className="[counter-reset:section] flex flex-col gap-y-3">
             <ExperienceShowcase>
                 <ExperienceSection
                     company="WPP Enterprise Solutions"
@@ -47,6 +48,7 @@ export default function PortfolioSections() {
                     }
                 />
             </ExperienceShowcase>
+            <ProjectShowcase/>
         </div>
     )
 }

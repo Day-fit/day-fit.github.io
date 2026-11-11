@@ -1,3 +1,3 @@
 export default function Line() {
-    return <div className={'w-full bg-border h-0.5'} />
+    return <div className={'w-full bg-border h-0.5 mb-5'} />
 }
