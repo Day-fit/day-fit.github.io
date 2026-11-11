@@ -1,5 +1,4 @@
 import Hero from '../../components/hero/Hero.tsx'
-import ScrollDown from '../../components/hero/ScrollDown.tsx'
 import PortfolioSections from './PortfolioSections.tsx'
 import About from '../../components/about/About.tsx'
 import Contact from '../../components/contact/Contact.tsx'
@@ -11,7 +10,6 @@ export default function HomePage() {
             <main className="w-full">
                 <div className="w-full space-y-6 text-center">
                     <Hero />
-                    <ScrollDown />
                     <PortfolioSections />
                     <About />
                     <Contact />

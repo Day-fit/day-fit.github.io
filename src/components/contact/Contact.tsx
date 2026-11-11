@@ -11,9 +11,9 @@ export default function Contact() {
             }
             sectionTitle={'Contact'}
         >
-            <p className="text-lg">
-                Open to a paid backend internship or junior opportunity,
-                part-time alongside school.
+            <p className="text-base leading-relaxed sm:text-lg">
+                Open to backend internship or junior opportunity, part-time
+                alongside school.
             </p>
             <div className="mt-8">
                 <Link

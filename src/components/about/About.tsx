@@ -6,47 +6,46 @@ export default function About() {
             sectionTitle={'About'}
             title={'Little bit about myself'}
         >
-            <p className={'text-lg'}>
-                My name is Dawid. I started coding when I was 13, it all started
-                when I wanted to write plugins for my minecraft server, so I've
-                watched some Java tutorials and my parents bought a book ("Think
-                Java"), programming was so fun to me that I decided to further
-                educate about programming. Currently I'm a fourth-year student
-                at technical high school, specializing in programming. I'm
-                developing backend systems (such as Mossy), and each day I'm
-                learning more and more about distributing systems (just compare
-                Mossy to Encryptify, it's miles ahead).
+            <p className="text-base leading-relaxed sm:text-lg">
+                I started coding at 13 because I wanted to write plugins for my
+                Minecraft server. I learned Java from tutorials and "Think
+                Java", a book my parents bought me. I'm now a fourth-year
+                student at a technical high school, specializing in programming.
+                I build backend systems like Mossy, focusing on authentication,
+                asynchronous communication and microservices.
             </p>
             <div className="mt-10">
                 <h3 className="text-2xl">My stack</h3>
                 <dl className="mt-6 grid gap-x-12 gap-y-6 sm:grid-cols-2">
                     <div>
-                        <dt className="font-semibold">Languages</dt>
+                        <dt className="font-semibold">Where I'm strongest</dt>
                         <dd className="mt-1 text-sm leading-relaxed text-secondary-text">
-                            Java and Kotlin are my main languages. I also use
-                            TypeScript and JavaScript for web apps.
+                            Kotlin and Java with Spring Boot are where I feel
+                            most confident, from building APIs to authentication
+                            and communication between services.
                         </dd>
                     </div>
                     <div>
-                        <dt className="font-semibold">Frameworks</dt>
+                        <dt className="font-semibold">Data & messaging</dt>
                         <dd className="mt-1 text-sm leading-relaxed text-secondary-text">
-                            Spring Boot for backend services, React for
-                            frontends and WXT for browser extensions.
+                            I'm also comfortable integrating RabbitMQ with
+                            backend services, and I work with SQL databases and
+                            caching.
                         </dd>
                     </div>
                     <div>
-                        <dt className="font-semibold">Infrastructure</dt>
+                        <dt className="font-semibold">Frontend when needed</dt>
                         <dd className="mt-1 text-sm leading-relaxed text-secondary-text">
-                            PostgreSQL, MySQL and Redis for storage and caching;
-                            RabbitMQ (including Streams) and Kafka for
-                            messaging; MinIO for files.
+                            I use TypeScript and React to build interfaces for
+                            my projects, and WXT for browser extensions.
                         </dd>
                     </div>
                     <div>
-                        <dt className="font-semibold">CI/CD</dt>
+                        <dt className="font-semibold">Building & shipping</dt>
                         <dd className="mt-1 text-sm leading-relaxed text-secondary-text">
-                            Docker, Kubernetes, Helm, Argo CD and GitHub Actions
-                            for container builds and automated deployments.
+                            I also handle container builds and CI/CD pipelines,
+                            using Docker and GitHub Actions to automate testing
+                            and delivery.
                         </dd>
                     </div>
                 </dl>

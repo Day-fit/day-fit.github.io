@@ -13,6 +13,7 @@ type ProjectSectionProps = {
     badge?: ReactNode
     technologies?: readonly ProjectTechnology[]
     repositoryUrl?: string
+    websiteUrl?: string
 } & (
     | {
           isActivelyDeveloped: false
@@ -35,23 +36,24 @@ export default function ProjectSection({
     badge,
     technologies,
     repositoryUrl,
+    websiteUrl,
 }: ProjectSectionProps) {
     return (
-        <article className=" rounded-md bg-background p-3 mb-4">
-            <div className="flex flex-col gap-2 mb-5 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex items-center gap-4">
+        <article className="mb-4 min-w-0 rounded-md bg-background p-4 sm:p-6">
+            <div className="mb-5 flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
+                <div className="flex min-w-0 items-center gap-3 sm:gap-4">
                     {iconSrc && (
                         <img
-                            className="size-16 shrink-0 object-contain"
+                            className="size-12 shrink-0 object-contain grayscale sm:size-16"
                             src={iconSrc}
                             alt={`${name} icon`}
                             width={64}
                             height={64}
                         />
                     )}
-                    <h3 className="text-3xl">{name}</h3>
+                    <h3 className="text-2xl sm:text-3xl">{name}</h3>
                 </div>
-                <div className="flex flex-wrap items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2 text-sm sm:text-base">
                     <span>
                         {from} – {isActivelyDeveloped ? 'Present' : to}
                     </span>
@@ -64,16 +66,27 @@ export default function ProjectSection({
                 </div>
             </div>
             <Line />
-            <p className="text-secondary-text">{description}</p>
+            <p className="text-secondary-text leading-relaxed">{description}</p>
             {technologies && technologies.length > 0 && (
                 <ProjectTechnologies technologies={technologies} />
             )}
             {children}
-            {repositoryUrl && (
-                <div className="mt-6 flex justify-end">
-                    <Link href={repositoryUrl} isExternal variant="secondary">
-                        View repository
-                    </Link>
+            {(repositoryUrl || websiteUrl) && (
+                <div className="mt-6 flex flex-wrap justify-end gap-3">
+                    {websiteUrl && (
+                        <Link href={websiteUrl} isExternal variant="secondary">
+                            Visit website
+                        </Link>
+                    )}
+                    {repositoryUrl && (
+                        <Link
+                            href={repositoryUrl}
+                            isExternal
+                            variant="secondary"
+                        >
+                            View repository
+                        </Link>
+                    )}
                 </div>
             )}
         </article>

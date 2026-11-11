@@ -203,7 +203,7 @@ export default function MossyDetails() {
             <div
                 role="tablist"
                 aria-label="Mossy project details"
-                className="flex flex-wrap gap-x-6 border-b border-border"
+                className="flex gap-x-5 overflow-x-auto border-b border-border [scrollbar-color:var(--color-border)_var(--color-background)] scrollbar-thin sm:gap-x-6"
             >
                 {tabs.map((tab, index) => (
                     <button
@@ -222,9 +222,15 @@ export default function MossyDetails() {
                         }
                         tabIndex={activeTab === index ? 0 : -1}
                         onClick={() => setActiveTab(index)}
-                        onFocus={() => setActiveTab(index)}
+                        onFocus={(event) => {
+                            setActiveTab(index)
+                            event.currentTarget.scrollIntoView({
+                                block: 'nearest',
+                                inline: 'nearest',
+                            })
+                        }}
                         onKeyDown={(event) => handleKeyDown(event, index)}
-                        className={`min-h-11 cursor-pointer border-b-2 px-1 py-3 text-sm font-medium whitespace-nowrap transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-text motion-reduce:transition-none ${
+                        className={`min-h-11 shrink-0 cursor-pointer border-b-2 px-1 py-3 text-sm font-medium whitespace-nowrap transition-colors focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary-text motion-reduce:transition-none ${
                             activeTab === index
                                 ? 'border-primary-text text-primary-text'
                                 : 'border-transparent text-muted-text hover:border-border hover:text-primary-text'

@@ -20,23 +20,25 @@ export default function ExperienceSection({
 }: ExperienceSectionProps) {
     return (
         <article>
-            <div className="flex flex-row w-full justify-between mb-5">
-                <div>
-                    <h3 className="text-3xl">{company}</h3>
+            <div className="mb-5 flex w-full flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+                <div className="min-w-0">
+                    <h3 className="text-2xl sm:text-3xl">{company}</h3>
                     <p className="text-muted-text">{role}</p>
                 </div>
-                <div>
+                <div className="flex shrink-0 flex-wrap items-center gap-2 text-sm sm:text-base">
                     <span>{period}</span>
                     {isLatest && (
-                        <span className="bg-background rounded-md py-1 px-3 ml-2">
+                        <span className="bg-background rounded-md py-1 px-3">
                             Latest
                         </span>
                     )}
                 </div>
             </div>
             <Line />
-            <p className="text-secondary-text">{description}</p>
-            {children != null && <div className="mt-10">{children}</div>}
+            <p className="text-secondary-text leading-relaxed">{description}</p>
+            {children != null && (
+                <div className="mt-6 sm:mt-10">{children}</div>
+            )}
         </article>
     )
 }

@@ -19,7 +19,9 @@ export default function ExperienceShowcase({
             }
             sectionTitle="Experience"
         >
-            <div className="flex flex-col gap-32">{children}</div>
+            <div className="flex flex-col gap-16 sm:gap-24 lg:gap-32">
+                {children}
+            </div>
         </GenericSection>
     )
 }

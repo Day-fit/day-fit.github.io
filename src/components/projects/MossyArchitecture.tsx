@@ -9,6 +9,8 @@ import {
     ReactFlow,
 } from '@xyflow/react'
 import type { Edge, EdgeProps, Node, NodeProps } from '@xyflow/react'
+import { useEffect, useRef, useState } from 'react'
+import { GoArrowDown } from 'react-icons/go'
 
 type ArchitectureNode = Node<
     { label: string; kind: 'client' | 'backend' | 'vault' },
@@ -128,38 +130,105 @@ const edges: Edge[] = [
     style: { stroke: 'var(--color-muted-text)', strokeWidth: 1.5 },
 }))
 
-export default function MossyArchitecture() {
+function CompactConnection({ label }: { label: string }) {
     return (
-        <figure aria-label="Mossy architecture">
+        <div className="flex flex-col items-center text-muted-text">
+            <div className="h-4 border-l border-muted-text" />
+            <p className="max-w-48 px-2 py-1 text-center text-xs leading-relaxed">
+                {label}
+            </p>
+            <GoArrowDown aria-hidden="true" className="size-5" />
+        </div>
+    )
+}
+
+function CompactArchitecture() {
+    return (
+        <div className="mx-auto max-w-md rounded-md border border-border p-3 sm:p-5">
+            <div className="grid grid-cols-2 gap-3">
+                {['Frontend', 'Web Extension'].map((client) => (
+                    <div
+                        key={client}
+                        className="flex min-h-16 items-center justify-center rounded-md border border-border bg-surface px-2 py-3 text-center text-sm font-medium"
+                    >
+                        {client}
+                    </div>
+                ))}
+            </div>
+            <div className="mx-auto h-5 w-1/2 border-x border-b border-muted-text" />
+            <CompactConnection label="key-sync and password access" />
+            <div className="flex min-h-20 items-center justify-center gap-3 rounded-md border border-border bg-surface px-3 py-4 text-sm font-medium">
+                <img
+                    src={`${import.meta.env.BASE_URL}mossy-creature.webp`}
+                    alt=""
+                    width={48}
+                    height={48}
+                    className="size-12 shrink-0 grayscale brightness-150"
+                />
+                <span>Mossy's backend</span>
+            </div>
+            <CompactConnection label="real-time communication over STOMP (relay)" />
+            <div className="mx-auto flex min-h-16 w-44 max-w-full items-center justify-center rounded-md border border-border bg-surface px-5 py-4 text-sm font-medium">
+                Vault
+            </div>
+        </div>
+    )
+}
+
+export default function MossyArchitecture() {
+    const containerRef = useRef<HTMLElement>(null)
+    const [isCompact, setIsCompact] = useState(true)
+
+    useEffect(() => {
+        const container = containerRef.current
+        if (!container) return
+
+        const observer = new ResizeObserver(([entry]) => {
+            setIsCompact(entry.contentRect.width < 800)
+        })
+        observer.observe(container)
+        return () => observer.disconnect()
+    }, [])
+
+    return (
+        <figure ref={containerRef} aria-label="Mossy architecture">
             <figcaption className="sr-only">
                 frontend and web extension connect to mossy's backend, which
                 provides key-sync and password access. The backend connects to
                 vault using real-time communication over STOMP as a relay.
             </figcaption>
-            <div className="h-96 w-full overflow-hidden rounded-md border border-border sm:h-104">
-                <ReactFlow
-                    defaultNodes={nodes}
-                    defaultEdges={edges}
-                    nodeTypes={nodeTypes}
-                    edgeTypes={edgeTypes}
-                    colorMode="dark"
-                    className="bg-background"
-                    fitView
-                    fitViewOptions={{ padding: 0.1, maxZoom: 1 }}
-                    minZoom={0.2}
-                    maxZoom={2}
-                    nodesDraggable={false}
-                    nodesConnectable={false}
-                    edgesReconnectable={false}
-                    elementsSelectable={false}
-                    deleteKeyCode={null}
-                    zoomOnScroll={false}
-                    preventScrolling={false}
-                >
-                    <Background color="var(--color-border)" gap={24} size={1} />
-                    <Controls showInteractive={false} />
-                </ReactFlow>
-            </div>
+            {isCompact ? (
+                <CompactArchitecture />
+            ) : (
+                <div className="h-104 w-full overflow-hidden rounded-md border border-border">
+                    <ReactFlow
+                        defaultNodes={nodes}
+                        defaultEdges={edges}
+                        nodeTypes={nodeTypes}
+                        edgeTypes={edgeTypes}
+                        colorMode="dark"
+                        className="bg-background"
+                        fitView
+                        fitViewOptions={{ padding: 0.1, maxZoom: 1 }}
+                        minZoom={0.2}
+                        maxZoom={2}
+                        nodesDraggable={false}
+                        nodesConnectable={false}
+                        edgesReconnectable={false}
+                        elementsSelectable={false}
+                        deleteKeyCode={null}
+                        zoomOnScroll={false}
+                        preventScrolling={false}
+                    >
+                        <Background
+                            color="var(--color-border)"
+                            gap={24}
+                            size={1}
+                        />
+                        <Controls showInteractive={false} />
+                    </ReactFlow>
+                </div>
+            )}
         </figure>
     )
 }

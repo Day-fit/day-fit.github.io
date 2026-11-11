@@ -4,7 +4,11 @@ import MossyDetails from './MossyDetails.tsx'
 
 export default function ProjectShowcase() {
     return (
-        <GenericSection title={'Projects'} sectionTitle={'Projects'}>
+        <GenericSection
+            id="projects"
+            title={'Projects'}
+            sectionTitle={'Projects'}
+        >
             <ProjectSection
                 name={'Mossy'}
                 description={
@@ -33,6 +37,7 @@ export default function ProjectShowcase() {
                     'GitHub Actions',
                 ]}
                 repositoryUrl="https://github.com/Day-fit/Mossy"
+                websiteUrl="https://mossy.dayfit.pl"
                 badge={
                     <a
                         href="https://github.com/Day-fit/Mossy/tags"
@@ -45,7 +50,7 @@ export default function ProjectShowcase() {
                             src="https://img.shields.io/github/v/tag/Day-fit/Mossy"
                             alt="Latest GitHub tag for Mossy"
                             height={20}
-                            className="h-5 w-auto"
+                            className="h-5 w-auto grayscale"
                         />
                     </a>
                 }

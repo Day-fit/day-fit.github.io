@@ -14,11 +14,14 @@ export default function PortfolioSections() {
                     description="Worked on backend refactoring, authentication, test reliability and CI/CD automation."
                     isLatest={true}
                 >
-                    <div className="flex flex-row gap-x-40 items-center">
-                        <div>
-                            <div className="text-4xl flex flex-row gap-x-2 items-center">
+                    <div className="grid gap-8 sm:grid-cols-2 xl:gap-16">
+                        <div className="min-w-0">
+                            <div className="flex items-center gap-2 text-2xl whitespace-nowrap tabular-nums sm:text-3xl xl:text-4xl">
                                 <span>7.5 min </span>
-                                <FaLongArrowAltRight />
+                                <FaLongArrowAltRight
+                                    aria-hidden="true"
+                                    className="shrink-0"
+                                />
                                 <span>5 min</span>
                             </div>
                             <p className="text-sm text-secondary-text">
@@ -26,10 +29,13 @@ export default function PortfolioSections() {
                             </p>
                         </div>
 
-                        <div>
-                            <div className="text-4xl flex flex-row gap-x-2 items-center">
+                        <div className="min-w-0">
+                            <div className="flex items-center gap-2 text-2xl whitespace-nowrap tabular-nums sm:text-3xl xl:text-4xl">
                                 <span>4.2 min </span>
-                                <FaLongArrowAltRight />
+                                <FaLongArrowAltRight
+                                    aria-hidden="true"
+                                    className="shrink-0"
+                                />
                                 <span>2 min</span>
                             </div>
                             <p className="text-sm text-secondary-text">
@@ -48,7 +54,7 @@ export default function PortfolioSections() {
                     }
                 />
             </ExperienceShowcase>
-            <ProjectShowcase/>
+            <ProjectShowcase />
         </div>
     )
 }
