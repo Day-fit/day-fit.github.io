@@ -8,7 +8,6 @@ type ProjectShowcaseProps = {
 export default function ProjectShowcase({
     name,
     description,
-    link,
     icon,
 }: ProjectShowcaseProps) {
     return (

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import Line from './Line.tsx'
+import Line from '../ui/Line.tsx'
 
 type ExperienceSectionProps = {
     company: string
@@ -27,7 +27,11 @@ export default function ExperienceSection({
                 </div>
                 <div>
                     <span>{period}</span>
-                    {isLatest && <span className="bg-background rounded-md py-1 px-3 ml-2">Latest</span>}
+                    {isLatest && (
+                        <span className="bg-background rounded-md py-1 px-3 ml-2">
+                            Latest
+                        </span>
+                    )}
                 </div>
             </div>
             <Line />

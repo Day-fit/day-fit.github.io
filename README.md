@@ -11,8 +11,30 @@ npm install
 npm run dev
 ```
 
-Edit `src/App.tsx` for the application and `src/globals.css` for global styles.
+Edit `src/pages/home/HomePage.tsx` for the home page and `src/globals.css` for global styles.
 Tailwind utilities are available through the Tailwind Vite plugin.
+
+## Project structure
+
+```text
+src/
+  components/
+    experience/    # Role entries and their shared section heading
+    hero/          # Hero introduction and scroll cue
+    layout/        # Shared section layout
+    projects/      # Project presentation
+    ui/            # Reusable links and dividers
+  pages/
+    home/
+      HomePage.tsx          # Composes the home page
+      PortfolioSections.tsx # Assembles the portfolio content
+  App.tsx          # Application entry component
+  main.tsx         # React bootstrap
+  globals.css      # Fonts, theme tokens, and base styles
+```
+
+Keep feature components in their purpose-specific folder, shared visual primitives
+in `components/ui`, and page composition in `pages`.
 
 ## Commands
 

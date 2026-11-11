@@ -1,4 +1,4 @@
-import Link from '../navigation/Link.tsx'
+import Link from '../ui/Link.tsx'
 
 export default function Hero() {
     return (

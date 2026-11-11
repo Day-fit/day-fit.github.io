@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import GenericSection from './GenericSection.tsx'
+import GenericSection from '../layout/GenericSection.tsx'
 
 type ExperienceShowcaseProps = {
     children: ReactNode

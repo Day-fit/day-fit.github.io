@@ -1,8 +1,8 @@
-import ExperienceSection from '../ExperienceSection.tsx'
-import ExperienceShowcase from '../ExperienceShowcase.tsx'
+import ExperienceSection from '../../components/experience/ExperienceSection.tsx'
+import ExperienceShowcase from '../../components/experience/ExperienceShowcase.tsx'
 import { FaLongArrowAltRight } from 'react-icons/fa'
 
-export default function Sections() {
+export default function PortfolioSections() {
     return (
         <div className="bg-surface pt-10 [counter-reset:section]">
             <ExperienceShowcase>
