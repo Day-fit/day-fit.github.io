@@ -1,4 +1,5 @@
 import { useEffect, useId, useRef, useState } from 'react'
+import { motion, useReducedMotion } from 'motion/react'
 
 type ContributionDay = {
     date: string
@@ -179,6 +180,7 @@ function ContributionCalendar({ days }: { days: ContributionDay[] }) {
 }
 
 export default function GitHubActivity() {
+    const shouldReduceMotion = useReducedMotion()
     const [activity, setActivity] = useState<ActivityState>({
         status: 'loading',
     })
@@ -225,12 +227,23 @@ export default function GitHubActivity() {
             aria-label="GitHub contribution activity"
         >
             {activity.status === 'loading' && (
-                <p
+                <div
                     role="status"
-                    className="flex min-h-36 items-center text-sm text-muted-text"
+                    className="flex min-h-36 animate-pulse flex-col justify-center gap-3 motion-reduce:animate-none"
                 >
-                    Loading GitHub activity…
-                </p>
+                    <span className="sr-only">Loading GitHub activity…</span>
+                    <div
+                        aria-hidden="true"
+                        className="h-24 w-full rounded bg-surface"
+                    />
+                    <div
+                        aria-hidden="true"
+                        className="flex items-center justify-between gap-4"
+                    >
+                        <div className="h-3 w-48 max-w-1/2 rounded bg-surface" />
+                        <div className="h-3 w-28 rounded bg-surface" />
+                    </div>
+                </div>
             )}
             {activity.status === 'error' && (
                 <p className="min-h-36 py-8 text-sm text-muted-text">
@@ -246,7 +259,11 @@ export default function GitHubActivity() {
                 </p>
             )}
             {activity.status === 'ready' && (
-                <>
+                <motion.div
+                    initial={{ opacity: shouldReduceMotion ? 1 : 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: shouldReduceMotion ? 0 : 0.25 }}
+                >
                     <div
                         ref={calendarRef}
                         className="overflow-x-auto pb-2 [scrollbar-color:var(--color-border)_var(--color-background)] scrollbar-thin focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-text"
@@ -279,7 +296,7 @@ export default function GitHubActivity() {
                             <span className="ml-1">More</span>
                         </div>
                     </div>
-                </>
+                </motion.div>
             )}
         </figure>
     )

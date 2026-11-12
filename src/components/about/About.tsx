@@ -5,12 +5,16 @@ export default function About() {
     return (
         <GenericSection
             sectionTitle={'About'}
-            title={<>A little bit <br/> about myself.</>}
+            title={
+                <>
+                    A little bit <br /> about myself.
+                </>
+            }
         >
             <ScrollReveal
                 as="p"
                 delay={0.08}
-                className="text-base leading-relaxed sm:text-lg"
+                className="text-base leading-relaxed sm:text-lg bg-background p-4 sm:p-6 rounded-md"
             >
                 My name is Dawid. I started coding when I was 13, it all started
                 when I wanted to write plugins for my minecraft server, so I've
@@ -20,7 +24,10 @@ export default function About() {
                 at technical high school, specializing in programming. I'm
                 developing backend systems such as Mossy.
             </ScrollReveal>
-            <ScrollReveal className="mt-10" delay={0.08}>
+            <ScrollReveal
+                className="mt-10 bg-background p-4 sm:p-6 rounded-md"
+                delay={0.08}
+            >
                 <h3 className="text-2xl">My stack</h3>
                 <dl className="mt-6 grid gap-x-12 gap-y-6 sm:grid-cols-2">
                     <div>

@@ -9,9 +9,10 @@ export default function PortfolioSections() {
             <ExperienceShowcase>
                 <ExperienceSection
                     company="WPP Enterprise Solutions"
+                    logoSrc={`${import.meta.env.BASE_URL}wpp-logo.svg`}
                     role="Software development internship"
                     period="October 2026"
-                    description="Worked on backend refactoring, authentication, test reliability and CI/CD automation."
+                    description="Worked on backend, refactored backend code to reduce HTTP requests count, patched authentication & authorization bugs, maintained system by updating dependencies, improved test reliability and CI/CD automation."
                     isLatest={true}
                 >
                     <div className="grid gap-8 sm:grid-cols-2 xl:gap-16">
@@ -47,10 +48,11 @@ export default function PortfolioSections() {
                 </ExperienceSection>
                 <ExperienceSection
                     company={'VML Enterprise Solutions'}
+                    logoSrc={`${import.meta.env.BASE_URL}vml-logo.png`}
                     role={'Software development internship'}
                     period={'March 2026'}
                     description={
-                        'Worked on design consistency and other frontend improvements'
+                        "Improved design consistency, created typography system, replaced hardcoded values and icons with branding assets, fixed bug in backend's authentication logic"
                     }
                 />
             </ExperienceShowcase>
