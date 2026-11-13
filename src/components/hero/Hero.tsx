@@ -14,10 +14,10 @@ export default function Hero() {
                 </div>
 
                 <div className="flex min-w-0 flex-col items-end justify-end gap-2 text-right">
-                    <h4 className="w-full text-3xl sm:text-4xl">
+                    <h2 className="w-full text-3xl sm:text-4xl">
                         Java & Kotlin <br />
                         Backend Developer
-                    </h4>
+                    </h2>
                     <div className="w-full bg-border h-0.5" />
 
                     <p className="mb-6 text-base sm:mb-10 sm:text-lg">

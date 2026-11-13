@@ -20,7 +20,7 @@ export default function ProjectShowcase() {
                 description={
                     'My biggest projects yet; E2EE password manager build on hybrid architecture,' +
                     ' where user hosts a vault, and hosted backend is used as a relay to access' +
-                    ' the vault remotly (when not in LAN). Does not require user to open ports on his side,' +
+                    ' the vault remotely (when not in LAN). Does not require user to open ports on his side,' +
                     ' as vault uses outbound connection to reach the relay system.' +
                     ' Microservice architecture, device trust based on proof of possession, ' +
                     'and idempotent device enrollment.'
