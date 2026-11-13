@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { vitePrerenderPlugin } from 'vite-prerender-plugin'
 
 export default defineConfig({
+    css: { devSourcemap: true },
     plugins: [
         react(),
         tailwindcss(),
