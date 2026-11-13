@@ -1,11 +1,6 @@
 import { lazy, Suspense, useId, useLayoutEffect, useRef, useState } from 'react'
 import type { KeyboardEvent, ReactNode } from 'react'
-import {
-    AnimatePresence,
-    motion,
-    useIsPresent,
-    useReducedMotion,
-} from 'motion/react'
+import { motion, useReducedMotion } from 'motion/react'
 
 type DetailTab = {
     id: string
@@ -55,18 +50,6 @@ const tabs: DetailTab[] = [
         label: 'Architecture',
         content: (
             <div className="flex flex-col gap-6">
-                <Suspense
-                    fallback={
-                        <div
-                            className="flex h-96 items-center justify-center text-muted-text sm:h-104"
-                            role="status"
-                        >
-                            Loading diagram…
-                        </div>
-                    }
-                >
-                    <MossyArchitecture />
-                </Suspense>
                 <div className="space-y-3">
                     <p>
                         <span className="font-semibold">Device trust:</span>{' '}
@@ -97,9 +80,9 @@ const tabs: DetailTab[] = [
         content: (
             <div className="flex flex-col gap-y-1.5">
                 <p>
-                    <span className="font-semibold">Microsevices:</span> as I've
-                    said before, I've chosen this architecture to improve my
-                    knowleage and skills in distrubuted systems. Tradeoff of
+                    <span className="font-semibold">Microservices:</span> as
+                    I've said before, I've chosen this architecture to improve
+                    my knowledge and skills in distributed systems. Tradeoff of
                     this architecture is distributed systems tax
                 </p>
                 <p>
@@ -128,16 +111,22 @@ type TabContentProps = {
     tab: DetailTab
     panelId: string
     tabId: string
+    isActive: boolean
     onHeightChange: (height: number) => void
 }
 
-function TabContent({ tab, panelId, tabId, onHeightChange }: TabContentProps) {
+function TabContent({
+    tab,
+    panelId,
+    tabId,
+    isActive,
+    onHeightChange,
+}: TabContentProps) {
     const contentRef = useRef<HTMLDivElement>(null)
-    const isPresent = useIsPresent()
 
     useLayoutEffect(() => {
         const content = contentRef.current
-        if (!content || !isPresent) return
+        if (!content || !isActive) return
 
         const observer = new ResizeObserver(() => {
             onHeightChange(content.getBoundingClientRect().height)
@@ -145,7 +134,7 @@ function TabContent({ tab, panelId, tabId, onHeightChange }: TabContentProps) {
         observer.observe(content)
 
         return () => observer.disconnect()
-    }, [isPresent, onHeightChange])
+    }, [isActive, onHeightChange])
 
     return (
         <div
@@ -153,12 +142,32 @@ function TabContent({ tab, panelId, tabId, onHeightChange }: TabContentProps) {
             id={panelId}
             role="tabpanel"
             aria-labelledby={tabId}
-            aria-hidden={!isPresent}
-            inert={!isPresent}
-            tabIndex={isPresent ? 0 : -1}
+            aria-hidden={!isActive}
+            inert={!isActive}
+            tabIndex={isActive ? 0 : -1}
             className="pt-6 text-secondary-text leading-relaxed focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary-text"
         >
-            {tab.content}
+            {tab.id === 'architecture' ? (
+                <div className="flex flex-col gap-6">
+                    {isActive && (
+                        <Suspense
+                            fallback={
+                                <div
+                                    className="flex h-96 items-center justify-center text-muted-text sm:h-104"
+                                    role="status"
+                                >
+                                    Loading diagram…
+                                </div>
+                            }
+                        >
+                            <MossyArchitecture />
+                        </Suspense>
+                    )}
+                    {tab.content}
+                </div>
+            ) : (
+                tab.content
+            )}
         </div>
     )
 }
@@ -169,7 +178,6 @@ export default function MossyDetails() {
     const [contentHeight, setContentHeight] = useState<number>()
     const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
     const shouldReduceMotion = useReducedMotion()
-    const currentTab = tabs[activeTab]
 
     function handleKeyDown(
         event: KeyboardEvent<HTMLButtonElement>,
@@ -215,11 +223,7 @@ export default function MossyDetails() {
                         type="button"
                         role="tab"
                         aria-selected={activeTab === index}
-                        aria-controls={
-                            activeTab === index
-                                ? `${id}-panel-${tab.id}`
-                                : undefined
-                        }
+                        aria-controls={`${id}-panel-${tab.id}`}
                         tabIndex={activeTab === index ? 0 : -1}
                         onClick={() => setActiveTab(index)}
                         onFocus={(event) => {
@@ -250,22 +254,23 @@ export default function MossyDetails() {
                 }}
                 className="relative overflow-hidden"
             >
-                <AnimatePresence initial={false} mode="popLayout">
+                {tabs.map((tab, index) => (
                     <motion.div
-                        key={currentTab.id}
-                        initial={{ opacity: shouldReduceMotion ? 1 : 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
+                        key={tab.id}
+                        hidden={activeTab !== index}
+                        initial={false}
+                        animate={{ opacity: activeTab === index ? 1 : 0 }}
                         transition={{ duration: shouldReduceMotion ? 0 : 0.18 }}
                     >
                         <TabContent
-                            tab={currentTab}
-                            panelId={`${id}-panel-${currentTab.id}`}
-                            tabId={`${id}-tab-${currentTab.id}`}
+                            tab={tab}
+                            panelId={`${id}-panel-${tab.id}`}
+                            tabId={`${id}-tab-${tab.id}`}
+                            isActive={activeTab === index}
                             onHeightChange={setContentHeight}
                         />
                     </motion.div>
-                </AnimatePresence>
+                ))}
             </motion.div>
         </div>
     )
