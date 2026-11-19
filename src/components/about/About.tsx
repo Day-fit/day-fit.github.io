@@ -16,13 +16,17 @@ export default function About() {
                 delay={0.08}
                 className="text-base leading-relaxed sm:text-lg bg-background p-4 sm:p-6 rounded-md"
             >
-                My name is Dawid. I started coding when I was 13, it all started
-                when I wanted to write plugins for my minecraft server, so I've
-                watched some Java tutorials and my parents bought a book ("Think
-                Java"), programming was so fun to me that I decided to further
-                educate about programming. Currently I'm a fourth-year student
-                at technical high school, specializing in programming. I'm
-                developing backend systems such as Mossy.
+                My name is Dawid. I live in Poznań, Poland. I started coding
+                when I was 13. It all started when I wanted to write plugins for
+                my Minecraft server, so I watched some Java tutorials and my
+                parents bought me a book ("Think Java"). Programming was so fun
+                for me that I decided to further educate myself about
+                programming. Currently, I'm a fourth-year student at a technical
+                high school, specializing in programming. After all these years
+                I'm still working with JVM languages (like Java and Kotlin). I'm
+                focused on backend development, with a strong interest in
+                microservices. I'm also interested in cryptography, which I'm
+                actively using in my projects.
             </ScrollReveal>
             <ScrollReveal
                 className="mt-10 bg-background p-4 sm:p-6 rounded-md"
